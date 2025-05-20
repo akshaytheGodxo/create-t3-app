@@ -1,5 +1,15 @@
 ---
-import ToggleComponent from "./toggle";
+import FolderStructureApp from "../../pages/en/folder-structure-app.mdx";
+import FolderStructurePages from "../../pages/en/folder-structure-pages.mdx";
+import ToggleButton from "./toggle";
+
+var selected = "app";
+
+const handleClick = (value: string) => {
+  selected = value;
+};
 ---
 
-<ToggleComponent client:load />
+<ToggleButton currentState={selected} setCurrentState={handleClick} />
+
+{selected === "app" ? <FolderStructureApp /> : <FolderStructurePages />}
